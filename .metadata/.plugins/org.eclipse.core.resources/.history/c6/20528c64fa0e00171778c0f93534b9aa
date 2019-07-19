@@ -1,0 +1,43 @@
+
+
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
+
+
+public class AutomationSample {
+
+	public static void main(String[] args) throws InterruptedException {
+		System.setProperty("webdriver.chrome.driver", "D://Chrome//chromedriver.exe");
+				
+		WebDriver driver = new ChromeDriver();
+        driver.get("https://login.yahoo.com/");
+        Thread.sleep(3000);
+        driver.findElement(By.xpath("//a[@id='login-signup']")).click();
+        Thread.sleep(2000);
+        List <WebElement> lists=driver.findElements(By.xpath("//Select[@id='usernamereg-month']/option"));
+       System.out.println( lists.size());
+       for(int i=1;i<lists.size()-1;i=i+1)
+        {
+    	   if(lists.get(i).getText().equals("January"));
+    	   {
+    		   lists.get(i).click();
+    	   }
+    	   
+        }
+        
+        
+	}   
+      
+    }
+       
+
+
+
+

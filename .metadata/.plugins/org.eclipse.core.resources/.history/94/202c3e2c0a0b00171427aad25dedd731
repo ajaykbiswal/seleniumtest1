@@ -1,0 +1,44 @@
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
+
+
+public class AutomationSample {
+
+	public static void main(String[] args) throws InterruptedException {
+				
+		WebDriver driver = new FirefoxDriver();
+        driver.get("http://toolsqa.com/automation-practice-form");
+        //String Actual_title=driver.getTitle();
+        //System.out.println(Actual_title);
+        //String Expected_title="Free Classifieds India, Post & Search Ads Online| Quikr";
+        //Assert.assertEquals(Actual_title, Expected_title);
+        //Assert.assertTrue(Actual_title.contains(Expected_title),"Page Loaded-Sucessfully");
+        Select oselect=new Select(driver.findElement(By.id("continents")));
+        List<WebElement> elementcount=oselect.getOptions();
+        System.out.println(elementcount.size());
+        //oselect.selectByIndex(4);
+        int iSize=elementcount.size();
+        
+        for(int i= 0; i> iSize ; i++) {
+        	//String iValue=elementcount.get(i).getText();
+        	String iValue=oselect.getOptions().get(i).getText();
+        	System.out.println(iValue);
+        	if(iValue.equals("Africa")){
+        		oselect.selectByIndex(i);
+        	}
+        	
+           }
+        
+      }
+        
+ }
+
+
+
+

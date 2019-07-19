@@ -1,0 +1,39 @@
+import City.City;
+
+
+public class sampletest {
+
+	public static void main(String[] args) {
+		
+		City C1 = new City();
+		C1.name ="A";
+		
+		City C2=new City();
+		C2.name ="B";
+		
+		City C3=new City();
+		C2.name ="C";
+		
+		System.out.println(C1.name);
+		System.out.println(C2.name);
+		System.out.println(C3.name);
+		
+		C1=C2;
+		
+		System.out.println(C1.name);
+		System.out.println(C2.name);
+		System.out.println(C3.name);
+		
+		C1.name="z";
+		
+		System.out.println(C1.name);
+		System.out.println(C2.name);
+		System.out.println(C3.name);
+		
+		
+		
+		
+		
+	}
+
+}

@@ -1,0 +1,65 @@
+
+
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+//import org.openqa.selenium.firefox.FirefoxDriver;
+//import org.openqa.selenium.support.ui.Select;
+
+
+public class AutomationSample {
+
+	public static void main(String[] args) throws InterruptedException {
+		System.setProperty("webdriver.chrome.driver", "D://Chrome//chromedriver.exe");
+				
+		WebDriver driver = new ChromeDriver();
+        driver.get("https://login.yahoo.com/");
+        Thread.sleep(3000);
+        driver.findElement(By.xpath("//a[@id='login-signup']")).click();
+        Thread.sleep(2000);
+        WebElement select=driver.findElement(By.id("usernamereg-month"));
+        List <WebElement> options=select.findElements(By.tagName("option"));
+       System.out.println( options.size());
+       Select sc= new Select(driver.findElement(By.name("mm")));
+       sc.selectByVisibleText("December");
+       for (WebElement option : options) {
+    	   System.out.println(option.getText());
+    	   if ("January".equals(option.getText().trim()))
+    		   option.click();
+    	       break;
+         }     
+       
+//       WebElement day=driver.findElement(By.name("dd"));
+//       List <WebElement> days=day.findElements(By.tagName("option"));
+//       System.out.println(days.size());
+//      
+//      for (WebElement d:options) {
+//   	   if ("28".equals(d.getText().trim()))
+//   		   d.click();
+//   	       break;
+//      }
+       
+//      WebElement year=driver.findElement(By.name("yyyy"));
+//      List <WebElement> years=year.findElements(By.tagName("option"));
+//      System.out.println(years.size());
+//     
+//     for (WebElement y:options) {
+//  	   if ("1982".equals(y.getText().trim()))
+//  		   y.click();
+//  	       break;
+//     } 
+//       
+       
+	}   
+      
+    }
+       
+
+
+
+

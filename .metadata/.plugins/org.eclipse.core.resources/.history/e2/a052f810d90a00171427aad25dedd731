@@ -1,0 +1,19 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+
+public class AutomationSample {
+
+	public static void main(String[] args) throws InterruptedException {
+		
+		WebDriver driver = new FirefoxDriver();
+        driver.get("http://wikipedia.org");
+        driver.findElement(By.xpath("a//[@id='js-link-box-en']")).click();
+        Thread.sleep(5000);
+        driver.findElement(By.id("searchInput")).sendKeys("Software");
+        Thread.sleep(5000);
+        driver.findElement(By.id("searchInput")).submit();
+	}
+
+}

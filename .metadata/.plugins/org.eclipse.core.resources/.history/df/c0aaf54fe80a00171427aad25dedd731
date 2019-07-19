@@ -1,0 +1,26 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.Assert;
+
+
+public class AutomationSample {
+
+	public static void main(String[] args) throws InterruptedException {
+				
+		WebDriver driver = new FirefoxDriver();
+        driver.get("http://wikipedia.org");
+        
+        String my_title=driver.getTitle();
+        System.out.println(my_title);
+        String Expected_title="Wikipedia";
+        Assert.assertEquals("my_tiltle", "Expected_title");
+        driver.findElement(By.xpath("//a[@id='js-link-box-en']")).click();
+        Thread.sleep(2000);
+        driver.findElement(By.id("searchInput")).sendKeys("Software");
+        Thread.sleep(2000);
+        driver.findElement(By.id("searchInput")).submit();
+	}
+
+}
